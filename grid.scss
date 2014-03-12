@@ -1,0 +1,174 @@
+
+//   /$$$$$$            /$$       /$$          
+//  /$$__  $$          |__/      | $$          
+// | $$  \__/  /$$$$$$  /$$  /$$$$$$$  /$$$$$$$
+// | $$ /$$$$ /$$__  $$| $$ /$$__  $$ /$$_____/
+// | $$|_  $$| $$  \__/| $$| $$  | $$|  $$$$$$ 
+// | $$  \ $$| $$      | $$| $$  | $$ \____  $$
+// |  $$$$$$/| $$      | $$|  $$$$$$$ /$$$$$$$/
+//  \______/ |__/      |__/ \_______/|_______/ 
+                                            
+
+/* Inspired by Bootstrap. 
+@ArleyM - http://arleym.com/faux-forking-bootstrap-grids/ 
+
+<div class="row">
+  <div class="span-half"></div>
+  <div class="span-half"></div>
+</div>  
+
+Bootstrap is compiled with LESS (there is a Sass project on Github too). The long trailing digits are totally required to keep things even. 
+
+*/
+
+// You likely already have this, but it's a requirement: 
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// clearfix/group treatment
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+// Variables used below (I usually keep these in a vars.scss)
+$bp-small: 40em; // 640px
+$bp-medium: 47.938em;; // 767px
+
+
+
+
+
+.row {
+	margin-bottom:.5em;
+}
+	[class*="span"] {
+		float: left;
+		display: block;
+		padding: .5em;
+		@media (max-width: $bp-small) {
+			padding: 0;
+		}
+		margin-left: 2.564102564102564%;
+	}
+
+// When the desktop order should be reverse of the mobile order, eg. when there's text on the left and image on the right, but mobile should show the image first. 
+.row--inverted [class*="span"] {
+	float: right;
+	margin-left: 0;
+	margin-right: 2.564102564102564%;
+
+	@media (max-width: $bp-medium) {
+		.row--inverted [class*="span"] {
+			margin-right: 0;
+		}
+	}
+
+}
+
+// Default usage of columns via Bootstrap
+.span12 {
+	width: 100%;
+}
+.span11 {
+	width: 91.45299145299145%;
+}
+.span10 {
+	width: 82.90598290598291%;
+}
+.span9 {
+	width: 74.35897435897436%;
+}
+.span8 {
+	width: 65.81196581196582%;
+}
+.span7 {
+	width: 57.26495726495726%;
+}
+.span6 {
+	width: 48.717948717948715%;
+}
+.span5 {
+	width: 40.17094017094017%;
+}
+.span4 {
+	width: 31.623931623931625%;
+}
+.span3 {
+	width: 23.076923076923077%;
+}
+.span2 {
+	width: 14.52991452991453%;
+}
+.span1 {
+	width: 5.982905982905983%;
+}
+.row [class*="span"]:first-child, 
+.container [class*="span"]:first-child {
+  margin-left: 0;
+}
+.row--inverted [class*="span"]:first-child {
+	margin-right: 0;
+}
+
+
+// row--tight has no space between columns, or below rows
+.row.row--tight { 
+	margin-bottom: 0;
+
+	> [class*="span"] {
+		margin: 0;
+		padding: 0;
+	}
+}
+.row--tight > .span11 {
+	width: 91.66666666666667%;
+}
+.row--tight > .span10 {
+	width: 83.33333333333333%;
+}
+.row--tight > .span9 {
+	width: 75%;
+}
+.row--tight > .span8 {
+	width: 66.66666666666666%;
+}
+.row--tight > .span7 {
+	width: 58.33333333333333%;
+}
+.row--tight > .span6 {
+	width: 50%;
+}
+.row--tight > .span5 {
+	width: 41.66666666666666%;
+}
+.row--tight > .span4 {
+	width: 33.33333333333333%;
+}
+.row--tight > .span3 {
+	width: 25%;
+}
+.row--tight > .span2 {
+	width: 16.66666666666666%;
+}
+.row--tight > .span1 {
+	width: 8.333333333333333%;
+}
+
+
+@media (max-width: $bp-medium) {
+
+	// Unless the parent .row is .row.row--static the span# inside will go to one column at this breakpoint. 
+	// This static row may need to stack the columns eventually, I recommend adding your own module namespaced class on the .row for styling (It's a best practice to never style on the .row or .span# classes from a grid system). 
+	// Also needs to not just be [class*="span"] for specificity since the .row--tight declarations above have a parent class.
+	// This is one of my favourite selectors I've ever written. Don't worry about old IE, it's in a media query anyways! 
+	:not(.row--static) > [class*="span"] {
+		width: 100%;
+		margin-left: 0;
+		float: none;
+	}
+}
