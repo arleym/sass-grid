@@ -1,0 +1,158 @@
+/* 
+  A compile of the adjacent grid.scss via http://sassmeister.com/
+*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  margin-bottom: .5em;
+}
+
+[class*="span"] {
+  float: left;
+  display: block;
+  padding: .5em;
+  margin-left: 2.564102564102564%;
+}
+@media (max-width: 40em) {
+  [class*="span"] {
+    padding: 0;
+  }
+}
+
+.row--inverted [class*="span"] {
+  float: right;
+  margin-left: 0;
+  margin-right: 2.564102564102564%;
+}
+@media (max-width: 47.938em) {
+  .row--inverted [class*="span"] .row--inverted [class*="span"] {
+    margin-right: 0;
+  }
+}
+
+.span12 {
+  width: 100%;
+}
+
+.span11 {
+  width: 91.45299145299145%;
+}
+
+.span10 {
+  width: 82.90598290598291%;
+}
+
+.span9 {
+  width: 74.35897435897436%;
+}
+
+.span8 {
+  width: 65.81196581196582%;
+}
+
+.span7 {
+  width: 57.26495726495726%;
+}
+
+.span6 {
+  width: 48.717948717948715%;
+}
+
+.span5 {
+  width: 40.17094017094017%;
+}
+
+.span4 {
+  width: 31.623931623931625%;
+}
+
+.span3 {
+  width: 23.076923076923077%;
+}
+
+.span2 {
+  width: 14.52991452991453%;
+}
+
+.span1 {
+  width: 5.982905982905983%;
+}
+
+.row [class*="span"]:first-child,
+.container [class*="span"]:first-child {
+  margin-left: 0;
+}
+
+.row--inverted [class*="span"]:first-child {
+  margin-right: 0;
+}
+
+.row.row--tight {
+  margin-bottom: 0;
+}
+.row.row--tight > [class*="span"] {
+  margin: 0;
+  padding: 0;
+}
+
+.row--tight > .span11 {
+  width: 91.66666666666667%;
+}
+
+.row--tight > .span10 {
+  width: 83.33333333333333%;
+}
+
+.row--tight > .span9 {
+  width: 75%;
+}
+
+.row--tight > .span8 {
+  width: 66.66666666666666%;
+}
+
+.row--tight > .span7 {
+  width: 58.33333333333333%;
+}
+
+.row--tight > .span6 {
+  width: 50%;
+}
+
+.row--tight > .span5 {
+  width: 41.66666666666666%;
+}
+
+.row--tight > .span4 {
+  width: 33.33333333333333%;
+}
+
+.row--tight > .span3 {
+  width: 25%;
+}
+
+.row--tight > .span2 {
+  width: 16.66666666666666%;
+}
+
+.row--tight > .span1 {
+  width: 8.333333333333333%;
+}
+
+@media (max-width: 47.938em) {
+  :not(.row--static) > [class*="span"] {
+    width: 100%;
+    margin-left: 0;
+    float: none;
+  }
+}
